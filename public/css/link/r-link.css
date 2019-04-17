@@ -1,0 +1,8 @@
+.r-link{
+    --uirLinkDisplay: var(--rLinkDisplay, inline-block);
+    --uirLinkColor: var(--rLinkColor);
+    --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+    display: var(--uirLinkDisplay) !important;
+    color: var(--uirLinkColor) !important;
+    text-decoration: var(--uirLinkTextDecoration) !important;
+}
