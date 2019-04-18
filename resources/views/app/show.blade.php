@@ -1,6 +1,6 @@
 @extends('layouts.uikit')
 @section('title')
-uStore - Show Data
+{{ $post->name }} - uStore Photography Site
 @endsection
 
 @section('content')
@@ -105,9 +105,6 @@ document.oncontextmenu=new Function("alert(message);return false")
         </div>
     </nav>
 
-
-
-
 <!-- NAVIGATION BAR -->
 <div id="offcanvas-nav" uk-offcanvas>
     <div class="uk-offcanvas-bar">
@@ -129,15 +126,6 @@ document.oncontextmenu=new Function("alert(message);return false")
     <h5>Uploaded by : {{ $post->user }}</h5>
     <p>{{ $post->description }}</p>
 </div>
-
-
-
-
-
-
-
-
-
 
 </div>
 @endsection 

@@ -23,3 +23,4 @@ Route::resource('/user', 'UploadControl')->middleware('auth');
 
 Route::get('/category','UploadControl@category');
 Route::get('/browse','UploadControl@browse');
+Route::get('/paginate','PublicView@paginate');

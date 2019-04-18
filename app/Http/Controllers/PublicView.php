@@ -36,4 +36,10 @@ class PublicView extends Controller
         $post = UserUpload::find($id);
         return view('app.show',compact('img','post'));
     }
+    
+    public function paginate()
+    {
+        $post = UserUpload::paginate();
+        return response()->json($post);
+    }
 }

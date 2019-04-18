@@ -4,6 +4,39 @@ uStore - Category
 @endsection
 @section('style')
 <link rel="stylesheet" href="css/link/link.css" />
+<style>
+
+.link_a{
+  display: block;
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.link_a::after{
+  content: "";
+  background: white;
+	mix-blend-mode: exclusion;
+  width: calc(100% + 20px);
+  height: 0;
+  position: absolute;
+  bottom: -4px;
+  left: -10px;
+	transition: all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.link_a:hover::after{
+	height: calc(100% + 8px)
+}
+
+p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+</style>
 @endsection
 
 @section('content')
