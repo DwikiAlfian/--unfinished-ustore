@@ -65,6 +65,16 @@
                             </div>
                         </div>
 
+                        <div class="uk-margin">
+                            
+                            <div class="uk-form-controls">
+                                <select class="uk-select" id="form-stacked-select">
+                                    <option>Option 01</option>
+                                    <option>Option 02</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div>
                             <div>
                                 <button type="submit" class="uk-button uk-button-primary">

@@ -16,48 +16,73 @@ uStore - User Index Page
     </div><br />
 @endif
 
-<div class="uk-background-cover" style="background-image: url(/storage/file/forets.jpg);">
-    
-    <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-        <div class="uk-navbar-left uk-margin-medium-left">
+<div class="uk-preserve-color" style="background-color: black;">
+<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+            <li>
+                <a class="uk-button" type="button" uk-tooltip="title: Open Navigation Bar; pos: right" uk-toggle="target: #offcanvas-nav"><span uk-icon="icon: menu; ratio: 1.5;"></span><span class="uk-margin-left" style="color: white;">Edit Photos : {{ $post->name }}</span></a>
+            </li>
+        </ul>
 
-            <ul class="uk-navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/user">User Page</a></li>
-                <li><a href="{{ route('user.create') }}">Upload Photo</a></li>
-            </ul>
-
+    </div>
+    <div class="uk-navbar-right uk-margin-medium-right">
+         @guest
+        <div>
+            <a class="uk-button uk-button-primary" href="/login">{{ __('Login') }}</a>
         </div>
-        <div class="uk-navbar-right uk-margin-medium-right">
 
-            @guest
-                <li>
-                    <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                    <li>
-                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif
-                @else
-                <div>
-                        <a class="uk-button uk-button-primary">
-                            {{ Auth::user()->name }}
-                        </a>
-                            <a class="uk-button uk-button-secondary" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+            @if (Route::has('register'))
+            <div>
+                <a class="uk-button uk-button-secondary" href="{{ route('register') }}">{{ __('Register') }}</a>
+            </div>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                 @csrf
-                            </form>
-                        
+            @endif
+            @else
+            <div>
+                <div class="uk-button-group">
+                    <button class="uk-button uk-button-primary">{{ Auth::user()->name }}</button>
+                    <div class="uk-inline">
+                        <button class="uk-button uk-button-secondary" type="button"><span uk-icon="icon:  triangle-down"></span></button>
+                        <div uk-dropdown="mode: click; boundary: ! .uk-button-group; boundary-align: true;" style="background-color: #1c1c1c;">
+                            <ul class="uk-nav uk-dropdown-nav" >
+                                <li>
+                                    <a href="/user"><span uk-icon="user"></span> Admin Page</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('user.create') }}"><span uk-icon="plus"></span> Upload Photo</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();"><span uk-icon="sign-out"></span>
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
+            </div>
             @endguest
         </div>
-    </nav>
+</nav>
+</div>
+
+<!-- NAVIGATION BAR -->
+<div id="offcanvas-nav" uk-offcanvas>
+    <div class="uk-offcanvas-bar">
+
+        <ul class="uk-list uk-list-divider" style="color: white;">
+            <li><a href="/" class="uk-link-reset"><span uk-tooltip="title: Go Back to Home; pos: right"><span class="uk-margin-right" uk-icon="icon: home"></span>Home</span></a></li>
+            <li><a href="/discover" class="uk-link-reset"><span uk-tooltip="title: Discover Photos; pos: right"><span class="uk-margin-right" uk-icon="icon: thumbnails"></span>Discover</span></a></li>
+            <li><a href="/user" class="uk-link-reset"><span uk-tooltip="title: Open User Page; pos: right"><span class="uk-margin-right" uk-icon="icon: user"></span>Admin Page</span></a></li>
+            <li><a href="/category" class="uk-link-reset"><span uk-tooltip="title: See Category; pos: right"><span class="uk-margin-right" uk-icon="icon: list"></span>Category</span></a></li>
+        </ul>
+
+    </div>
 </div>
 
 

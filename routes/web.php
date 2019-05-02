@@ -22,5 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/user', 'UploadControl')->middleware('auth');
 
 Route::get('/category','UploadControl@category');
-Route::get('/browse','UploadControl@browse');
+Route::get('/discover','UploadControl@discover');
 Route::get('/paginate','PublicView@paginate');

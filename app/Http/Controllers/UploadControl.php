@@ -169,7 +169,7 @@ class UploadControl extends Controller
         return view('app.category', compact('posts','image_p','image_r','image_a','image_o'));
     }
 
-    public function browse()
+    public function discover()
     {
         // $posts = DB::table('user_uploads')->select('name','image','user')->where('category','Panorama')->first();
         $image = UserUpload::all();
